@@ -1,3 +1,9 @@
 ---
 batch_connect:
   template: "basic"
+script:
+  native:
+    - "-l"
+    - "select=1:ncpus=44:slot_type=<% slot_type %>"
+    - "-l"
+    - "walltime=<%= '%02d:00:00' % hours %>"
