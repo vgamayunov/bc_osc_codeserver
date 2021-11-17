@@ -7,3 +7,6 @@ script:
     - "<%= slot_type %>"
     - "-t"
     - "<%= '%02d:00:00' % hours %>"
+<% if adapter =~ /slurm/ -%>
+    - "THIS_IS_SLURM"
+<% end -%>
