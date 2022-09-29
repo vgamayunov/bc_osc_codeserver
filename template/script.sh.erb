@@ -12,11 +12,11 @@ elsif working_dir.file?
 end
 %>
 
-export PATH=/mnt/resource/$USER/code-server-4.7.0-linux-amd64/bin:$PATH
+export PATH=/mnt/resource/$USER/code-server-3.9.3-linux-amd64/bin:$PATH
 if ! which code-server; then
     mkdir -p /mnt/resource/$USER
     pushd /mnt/resource/$USER
-    wget -qO- https://github.com/coder/code-server/releases/download/v4.7.0/code-server-4.7.0-linux-amd64.tar.gz | tar zxv
+    wget -qO- https://github.com/cdr/code-server/releases/download/v3.9.3/code-server-3.9.3-linux-amd64.tar.gz | tar zxv
     popd
 fi
 
@@ -38,13 +38,11 @@ module load project/ondemand git app_code_server
 echo "$(date): Started code-server"
 echo ""
 
-# removed form code-server-4.0:
-# --extra-extensions-dir="$CODE_SERVER_DATAROOT/extensions"
-
 code-server \
     --auth="password" \
     --bind-addr="0.0.0.0:${port}" \
     --disable-telemetry \
+    --extra-extensions-dir="$CODE_SERVER_DATAROOT/extensions" \
     --user-data-dir="$CODE_SERVER_DATAROOT" \
     --log debug \
     "<%= working_dir.to_s %>"
