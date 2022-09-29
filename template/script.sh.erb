@@ -38,11 +38,13 @@ module load project/ondemand git app_code_server
 echo "$(date): Started code-server"
 echo ""
 
+# removed form code-server-4.0:
+# --extra-extensions-dir="$CODE_SERVER_DATAROOT/extensions"
+
 code-server \
     --auth="password" \
     --bind-addr="0.0.0.0:${port}" \
     --disable-telemetry \
-    --extra-extensions-dir="$CODE_SERVER_DATAROOT/extensions" \
     --user-data-dir="$CODE_SERVER_DATAROOT" \
     --log debug \
     "<%= working_dir.to_s %>"
