@@ -12,11 +12,11 @@ elsif working_dir.file?
 end
 %>
 
-export PATH=/mnt/resource/$USER/code-server-4.7.0-linux-amd64/bin:$PATH
+export PATH=/mnt/resource/$USER/code-server-4.8.1-linux-amd64/bin:$PATH
 if ! which code-server; then
     mkdir -p /mnt/resource/$USER
     pushd /mnt/resource/$USER
-    wget -qO- https://github.com/coder/code-server/releases/download/v4.7.0/code-server-4.7.0-linux-amd64.tar.gz | tar zxv
+    wget -qO- https://github.com/coder/code-server/releases/download/v4.8.1/code-server-4.8.1-linux-amd64.tar.gz | tar zxv
     popd
 fi
 
