@@ -38,6 +38,10 @@ module load project/ondemand git app_code_server
 echo "$(date): Started code-server"
 echo ""
 
+# Remove scheduler environment variables to make code server a login node
+unset $(compgen -e SLURM_)
+unset $(compgen -e PBS_)
+
 code-server \
     --auth="password" \
     --bind-addr="0.0.0.0:${port}" \
